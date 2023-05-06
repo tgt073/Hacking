@@ -2,8 +2,8 @@ from email.mime.application import MIMEApplication
 
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
-smtp_username = 'tgtomy2002@gmail.com'
-smtp_password = 'hmodbsptisvjanwq'
+smtp_username = 'pruebashack2002@gmail.com'
+smtp_password = 'eenmwsuoiyxluzyq'
 to = 'recipient_email@example.com'
 
 while True:
